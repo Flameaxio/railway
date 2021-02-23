@@ -47,7 +47,7 @@ class RailwayStationsController < ApplicationController
   def set_railway_station
     @railway_station = RailwayStation.find(params[:id])
   end
-  
+
   def railway_station_params
     params.require(:railway_station).permit(:title)
   end
