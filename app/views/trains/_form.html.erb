@@ -1,19 +1,15 @@
 <%= form_with(model: train) do |form| %>
-  <% if train.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(train.errors.count, "error") %> prohibited this train from being saved:</h2>
-
-      <ul>
-        <% train.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'common/error_html', resource: @train %>
 
   <div class="field">
     <%= form.label :number %>
     <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :route %>
+    <%= form.collection_select :route_id, Route.all, :id, :title %>
+    <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
   </div>
 
   <div class="actions">
