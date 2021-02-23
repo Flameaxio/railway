@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: %i[ show edit update destroy ]
+  before_action :set_railway_station, only: %i[show edit update destroy]
 
   # GET /railway_stations or /railway_stations.json
   def index
@@ -7,8 +7,7 @@ class RailwayStationsController < ApplicationController
   end
 
   # GET /railway_stations/1 or /railway_stations/1.json
-  def show
-  end
+  def show; end
 
   # GET /railway_stations/new
   def new
@@ -16,8 +15,7 @@ class RailwayStationsController < ApplicationController
   end
 
   # GET /railway_stations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /railway_stations or /railway_stations.json
   def create
@@ -25,7 +23,7 @@ class RailwayStationsController < ApplicationController
 
     respond_to do |format|
       if @railway_station.save
-        format.html { redirect_to @railway_station, notice: "Railway station was successfully created." }
+        format.html { redirect_to @railway_station, notice: 'Railway station was successfully created.' }
         format.json { render :show, status: :created, location: @railway_station }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class RailwayStationsController < ApplicationController
   def update
     respond_to do |format|
       if @railway_station.update(railway_station_params)
-        format.html { redirect_to @railway_station, notice: "Railway station was successfully updated." }
+        format.html { redirect_to @railway_station, notice: 'Railway station was successfully updated.' }
         format.json { render :show, status: :ok, location: @railway_station }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +49,20 @@ class RailwayStationsController < ApplicationController
   def destroy
     @railway_station.destroy
     respond_to do |format|
-      format.html { redirect_to railway_stations_url, notice: "Railway station was successfully destroyed." }
+      format.html { redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_railway_station
-      @railway_station = RailwayStation.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def railway_station_params
-      params.require(:railway_station).permit(:title)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_railway_station
+    @railway_station = RailwayStation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def railway_station_params
+    params.require(:railway_station).permit(:title)
+  end
 end
