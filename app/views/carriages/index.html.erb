@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Type</th>
+      <th>Number</th>
       <th>Number of up seats</th>
       <th>Number of down seats</th>
       <th>Train number</th>
@@ -15,7 +15,7 @@
 
   <tbody>
   <% @carriage.each do |carriage| %>
-      <%= render carriage %>
+      <%= render carriage.becomes(Carriage) %>
     <% end %>
   </tbody>
 </table>
