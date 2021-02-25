@@ -40,7 +40,7 @@ module Admin
     def destroy
       @carriage.destroy
       respond_to do |format|
-        format.html { redirect_to carriage_url, notice: 'Carriage was successfully destroyed.' }
+        format.html { redirect_to admin_carriage_url, notice: 'Carriage was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
