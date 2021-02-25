@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Type</th>
+    <th>Number</th>
+    <th>Number of up seats</th>
+    <th>Number of down seats</th>
+    <th>Number of side up seats</th>
+    <th>Number of side down seats</th>
+    <th>Number of sitting seats</th>
+    <th>Train number</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @carriage.becomes(Carriage) %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
+<%= link_to 'Back', train_path(@carriage.train_id) %>

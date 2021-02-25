@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+  <strong>Carriages:</strong>
+  <ul>
+  <% @train.carriages.each do |x|  %>
+  <li><%= link_to "#{x.number}", carriage_path(x) %></li>
+  <% end %>
+  </ul>
+  <%= link_to 'New carriage', new_train_carriage_path(@train) %>
+</p>
+
+<%= link_to 'Edit', edit_train_path(@train) %> |
+<%= link_to 'Back', trains_path %>
