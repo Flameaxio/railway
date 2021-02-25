@@ -10,6 +10,7 @@ module Admin
 
     def new
       @carriage = Carriage.new
+      @train = Train.find(params[:train_id])
     end
 
     def edit; end
