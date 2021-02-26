@@ -20,7 +20,7 @@ module Admin
 
       respond_to do |format|
         if @carriage.save
-          format.html { redirect_to @train, notice: 'Carriage was successfully created.' }
+          format.html { redirect_to admin_train_path(@train), notice: 'Carriage was successfully created.' }
         else
           format.html { render :new, status: :unprocessable_entity }
         end

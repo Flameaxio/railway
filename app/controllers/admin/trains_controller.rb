@@ -19,7 +19,7 @@ module Admin
 
       respond_to do |format|
         if @train.save
-          format.html { redirect_to @train, notice: 'Train was successfully created.' }
+          format.html { redirect_to admin_train_path(@train), notice: 'Train was successfully created.' }
         else
           format.html { render :new, status: :unprocessable_entity }
         end

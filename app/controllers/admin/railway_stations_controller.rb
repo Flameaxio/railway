@@ -19,7 +19,7 @@ module Admin
 
       respond_to do |format|
         if @railway_station.save
-          format.html { redirect_to @railway_station, notice: 'Railway station was successfully created.' }
+          format.html { redirect_to admin_railway_station_path(@railway_station), notice: 'Railway station was successfully created.' }
         else
           format.html { render :new, status: :unprocessable_entity }
         end
