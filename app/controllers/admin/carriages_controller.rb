@@ -30,7 +30,7 @@ module Admin
     def update
       respond_to do |format|
         if @carriage.update(carriage_params)
-          format.html { redirect_to @carriage.becomes(Carriage), notice: 'Carriage was successfully updated.' }
+          format.html { redirect_to admin_carriage_path(@carriage.becomes(Carriage)), notice: 'Carriage was successfully updated.' }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end

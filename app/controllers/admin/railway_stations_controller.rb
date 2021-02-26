@@ -29,7 +29,7 @@ module Admin
     def update
       respond_to do |format|
         if @railway_station.update(railway_station_params)
-          format.html { redirect_to @railway_station, notice: 'Railway station was successfully updated.' }
+          format.html { redirect_to admin_railway_station_path(@railway_station), notice: 'Railway station was successfully updated.' }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end
