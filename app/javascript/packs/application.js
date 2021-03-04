@@ -14,4 +14,7 @@ import 'channels/tickets.js'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+document.addEventListener("turbolinks:load", function() {
+    // awesome code
+});
 

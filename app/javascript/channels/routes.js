@@ -1,6 +1,6 @@
 import { toggle } from './toggle.js'
 
-$(document).ready(function (){
+$(document).on('turbolinks:load', function () {
     $('a.edit_route_btn').click(function (e) {
         e.preventDefault();
         const route_id = $(this).data('routeId');

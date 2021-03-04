@@ -1,4 +1,4 @@
-$(document).ready(function (){
+$(document).on('turbolinks:load', function () {
     $('.search_form').submit(function (){
         let start = $('.start');
         let end = $('.end');
