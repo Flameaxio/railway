@@ -1,0 +1,58 @@
+<p>
+  <strong>Title:</strong>
+  <%= @route.title %>
+  <% if @route.trains.empty? %>
+  <p>No trains</p>
+<% else %>
+  <table>
+    <thead>
+    <th>Trains</th>
+    </thead>
+    <tbody>
+    <% @route.trains.each do |train| %>
+      <tr>
+        <td><%= "#{train.number}" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+<% if @route.railway_stations.empty? %>
+  <p>No stations</p>
+<% else %>
+  <table>
+    <thead>
+    <th>Stations</th>
+    </thead>
+    <tbody>
+    <% @route.railway_stations.ordered.each do |station| %>
+      <tr>
+        <td>
+          <p><strong><%= station.title %></strong>
+            <%= render 'common/error_html', resource: @route %>
+            <%= form_tag update_position_admin_railway_station_path(station.id), method: :post do %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= label_tag :number %>
+              <%= number_field_tag :number, station.index(@route.id) %>
+              <%= submit_tag 'Update position' %>
+            <% end %>
+            <%= form_tag update_time_admin_railway_station_path(station.id), method: :post do %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= label_tag :departure_time %>
+              <%= datetime_local_field :departure_time, station.departure_time(@route.id) %>
+              <%= label_tag :arrival_time %>
+              <%= datetime_local_field :arrival_time, station.arrival_time(@route.id) %>
+              <%= label_tag "Current times: #{station.departure_time(@route.id)} - #{station.arrival_time(@route.id)}" %>
+              <%= submit_tag 'Update time' %>
+            <% end %>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+
+<%= link_to 'Edit', edit_admin_route_path(@route) %> |
+<%= link_to 'Back', admin_routes_path %>
